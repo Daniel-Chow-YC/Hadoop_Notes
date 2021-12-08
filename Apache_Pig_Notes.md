@@ -97,7 +97,7 @@ combined_data_final = FOREACH combined_data GENERATE close_values_cat::date AS d
 ```
 diff = FOREACH combined_data_final GENERATE date, (tesla_close - cat_close) AS diff;
 ```
-- Using Illustrate:
+- Using Illustrate: `ILLUSTRATE diff;`
 ```
 ILLUSTRATE diff;
 ------------------------------------------------------------------------------------------------------------------------------------------------
