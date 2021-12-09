@@ -16,4 +16,4 @@
 
 ### AWS EMR (Elastic Map Reduce)
 - EMR is the Amazon EMR is the cloud big data platform provided by AWS
-- Accessing node in AWS: `ssh -i <path_to_public_key> hadoop@<ips>`
+- Accessing node in AWS: `ssh -i <path_to_public_key> hadoop@<Master_public_DNS>`
