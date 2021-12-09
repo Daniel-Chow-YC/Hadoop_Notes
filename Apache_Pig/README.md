@@ -60,6 +60,38 @@ month_groups = GROUP months BY month
 month_total = FOREACH month_groups GENERATE group, SUM(months.volume) AS total;
 ```
 
+<br />
+
+- **Sorting and Storing data:**
+```
+subset = FOREACH index_raw GENERATE date, high, volume;
+
+ordered = ORDER subset BY high DESC;
+
+STORE ordered INTO 'ordered_tesla' USING PigStorage(',');
+
+```
+## Count No. of words in file (Creating Pig Script)
+- Load data: `curl -O norvig.com/big.txt`
+
+- `hdfs dfs -mkdir wordcount`
+
+- Move data into hdfs: `hdfs dfs -put big.txt wordcount`
+
+- Create Pig script: `nano wordcount.pig`
+- Contents of wordcount.pig:
+```
+lines = LOAD 'wordcount/big.txt' AS (line: chararray);
+words = FOREACH lines GENERATE FLATTEN(TOKENIZE(line)) as word;
+grouped = GROUP words BY word;
+wordcount = FOREACH grouped GENERATE group, COUNT(words) AS count;
+STORE wordcount INTO 'pig_wordcount';
+```
+- Run script: `pig -x mapreduce wordcount.pig`
+- File is stored in hdfs: `hdfs dfs -ls pig_wordcount`
+- Move file to local node: `hdfs dfs -cat pig_wordcount/part-r-* > output.txt`
+- Copy file to local machine from node: `scp -i ~/.ssh/<public_key>hadoop@3.64.149.60:/home/hadoop/output.txt .`
+
 ## Task
 **Task to complete:**
 ```
