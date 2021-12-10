@@ -71,6 +71,15 @@ ordered = ORDER subset BY high DESC;
 STORE ordered INTO 'ordered_tesla' USING PigStorage(',');
 
 ```
+
+<br />
+
+- **Remove first 10 Rows of data:**
+```
+filterHeader = STREAM fullFile THROUGH `tail -n +10`;
+
+```
+
 ## Count No. of words in file (Creating Pig Script)
 - Load data: `curl -O norvig.com/big.txt`
 
