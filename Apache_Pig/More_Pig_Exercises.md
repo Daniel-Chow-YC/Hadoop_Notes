@@ -46,7 +46,7 @@ salespeople_territories_data = JOIN salespeople BY TerritoryID, territories BY T
 salespeople_territories = FOREACH salespeople_territories_data GENERATE BusinessEntityID, SalesYTD, Name AS TerritoryName;
 territory_groups = GROUP salespeople_territories BY TerritoryName;
 territory_groups_info = FOREACH territory_groups GENERATE group AS TerritoryName, COUNT(salespeople_territories.BusinessEntityID) as Count_of_SalesPeople, AVG(salespeople_territories.SalesYTD) AS AvgSales;
-STORE territory_groups_info INTO 'territory_info';
+STORE territory_groups_info INTO 'territory_info' USING PigStorage(',');
 ```
 - Run script: `pig -x mapreduce territory.pig`
 - File is stored in hdfs: `hdfs dfs -ls territory_info`
