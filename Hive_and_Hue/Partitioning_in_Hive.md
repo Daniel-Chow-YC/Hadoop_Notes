@@ -108,8 +108,6 @@ SELECT sparta_id, client_name, placement_date, city FROM academy.spartitions_pla
 
 ### Using Hive (via Hue) and dynamically partitioning data by platform:
 ```
-CREATE DATABASE IF NOT EXISTS sales;
-
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
 
