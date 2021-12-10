@@ -1,6 +1,6 @@
 # Partitioning
 
-## Partition using 2 separate files as source
+## Partition using 2 separate files as source:
 ```
 CREATE DATABASE IF NOT EXISTS academy;
 
@@ -21,7 +21,7 @@ INTO TABLE academy.spartitions PARTITION (city='Birmingham');
 SELECT * FROM academy.spartitions;
 ```
 
-## Partition using 1 file as source
+## Partition using 1 file as source:
 ```
 CREATE DATABASE IF NOT EXISTS academy;
 DROP TABLE IF EXISTS academy.spartitions;
@@ -58,7 +58,7 @@ WHERE city='Bham';
 SELECT * FROM academy.spartitions;
 ```
 
-## Dynamic Partitioning
+## Dynamic Partitioning:
 ```
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -106,7 +106,7 @@ SELECT sparta_id, client_name, placement_date, city FROM academy.spartitions_pla
 `hdfs dfs -cp s3://data-eng-resources/big-data/vgsales.csv vgsales.csv`
 
 
-### Using Hive (via Hue) and dynamically partitioning data by platform
+### Using Hive (via Hue) and dynamically partitioning data by platform:
 ```
 CREATE DATABASE IF NOT EXISTS sales;
 
