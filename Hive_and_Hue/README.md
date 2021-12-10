@@ -22,7 +22,7 @@ ssh -i ~/.ssh/<private_key> -N -D 8157 hadoop@<public_DNS>
 #### Access Hue in web browser
 - In the address bar go to: `<private_dns_name>:8888`
 
-### Hive Simple Example:
+## Hive Simple Example:
 ```
 CREATE DATABASE IF NOT EXISTS academy;
 
