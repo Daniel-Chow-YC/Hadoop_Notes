@@ -1,6 +1,7 @@
 # Partitioning
 
 ## Partition using 2 separate files as source:
+- Note: the source files do not contain the partition column (in this case 'city') within the data
 ```
 CREATE DATABASE IF NOT EXISTS academy;
 
@@ -22,6 +23,7 @@ SELECT * FROM academy.spartitions;
 ```
 
 ## Partition using 1 file as source:
+- Note: the source file does contain the partition column (in this case 'city') within the data
 ```
 CREATE DATABASE IF NOT EXISTS academy;
 DROP TABLE IF EXISTS academy.spartitions;
