@@ -154,3 +154,5 @@ INSERT INTO TABLE sales.vgsales_partition PARTITION (platform)
 SELECT rank, name, year, genre, publisher, NA_Sales, EU_Sales, JP_Sales, Other_sales, Global_sales, platform FROM sales.vgsales_partition_placeholder;
 
 ```
+- Check partitioned data in hdfs:
+`hdfs dfs -ls /user/hive/warehouse/sales.db/vgsales_partition`
