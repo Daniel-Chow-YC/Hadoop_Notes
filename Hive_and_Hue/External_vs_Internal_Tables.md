@@ -15,7 +15,7 @@
 
 <br />
 
-Creating an external database:
+### Creating an external table:
 ```
 CREATE DATABASE academy;
 
